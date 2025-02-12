@@ -17,7 +17,6 @@ import {
 } from "@/types/inspection-activity";
 import { Pagination } from "@/components/ui/pagination";
 import { Badge } from "@/components/ui/badge";
-import { InspectionActivityDialog } from "./inspection-activity-dialog";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -57,7 +56,6 @@ export function InspectionActivityList() {
     page: 1,
     pageSize: 10,
   });
-  const [createDialogOpen, setCreateDialogOpen] = useState(false);
   const router = useRouter();
 
   const handleSearch = (params: InspectionActivitySearchParams) => {
@@ -69,8 +67,8 @@ export function InspectionActivityList() {
   };
 
   const handleCreate = (values: any) => {
-    // TODO: 调用API创建巡查活动
-    console.log('创建巡查活动:', values);
+    // TODO: 调用API创建检查活动
+    console.log('创建检查活动:', values);
   };
 
   return (
@@ -79,9 +77,9 @@ export function InspectionActivityList() {
       
       <div className="space-y-2">
         <Button 
-          onClick={() => setCreateDialogOpen(true)}
+          onClick={() => router.push('/inspection-activities/create')}
         >
-          新增巡查活动
+          新增检查活动
         </Button>
         
         <div className="rounded-md border">
@@ -136,12 +134,6 @@ export function InspectionActivityList() {
           onChange={handlePageChange}
         />
       </div>
-
-      <InspectionActivityDialog
-        open={createDialogOpen}
-        onOpenChange={setCreateDialogOpen}
-        onSubmit={handleCreate}
-      />
     </div>
   );
 } 

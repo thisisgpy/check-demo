@@ -16,7 +16,7 @@ const sidebarItems = [
     icon: Building2,
   },
   {
-    title: "巡查活动",
+    title: "检查活动",
     href: "/inspection-activities",
     icon: ClipboardCheck,
   },

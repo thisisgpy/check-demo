@@ -22,8 +22,10 @@ const mockDetail = {
     {
       id: "1",
       department: "市监",
-      inspectorName: "李四",
-      inspectorNo: "ZF001",
+      inspectors: [
+        { name: "李四", no: "ZF001" },
+        { name: "王五", no: "ZF002" },
+      ],
       inspectionItems: [
         { 
           id: "1", 
@@ -150,13 +152,13 @@ export function InspectionActivityDetail({ id }: InspectionActivityDetailProps) 
             <div className="p-2 bg-white rounded-lg">
               <img 
                 src="/images/example-qr-code.png" 
-                alt="巡查活动二维码"
+                alt="检查活动二维码"
                 width={120}
                 height={120}
               />
             </div>
             <div className="text-sm text-muted-foreground">
-              巡查活动二维码
+              检查活动二维码
             </div>
           </div>
         </CardContent>
@@ -175,13 +177,22 @@ export function InspectionActivityDetail({ id }: InspectionActivityDetailProps) 
                   <div className="text-sm text-muted-foreground">行业部门</div>
                   <div>{group.department}</div>
                 </div>
-                <div className="space-y-1">
+                <div className="col-span-2 space-y-2">
                   <div className="text-sm text-muted-foreground">巡查人员</div>
-                  <div>{group.inspectorName}</div>
-                </div>
-                <div className="space-y-1">
-                  <div className="text-sm text-muted-foreground">执法证号</div>
-                  <div>{group.inspectorNo}</div>
+                  <div className="space-y-2">
+                    {group.inspectors.map((inspector, idx) => (
+                      <div key={idx} className="flex gap-4">
+                        <div className="flex-1">
+                          <span className="text-sm text-muted-foreground mr-2">姓名：</span>
+                          {inspector.name}
+                        </div>
+                        <div className="flex-1">
+                          <span className="text-sm text-muted-foreground mr-2">执法证号：</span>
+                          {inspector.no}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
                 <div className="col-span-full space-y-4">
                   <div className="text-sm text-muted-foreground">巡查事项</div>
