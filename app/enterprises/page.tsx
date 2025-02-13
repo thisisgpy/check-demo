@@ -1,4 +1,4 @@
-import { EnterpriseList } from "@/components/enterprise/enterprise-list";
+import { EnterpriseList } from "@/components/enterprises/enterprise-list";
 
 export default function EnterprisePage() {
   return (

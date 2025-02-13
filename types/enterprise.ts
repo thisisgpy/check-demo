@@ -5,6 +5,7 @@ export interface Enterprise {
   legalPerson: string;
   phone: string;
   address: string;
+  inspectionCount: number;
 }
 
 export interface EnterpriseSearchParams {

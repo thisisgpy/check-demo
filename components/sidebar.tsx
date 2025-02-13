@@ -5,14 +5,21 @@ import {
   Building2,
   ClipboardCheck,
   FileCheck,
+  Home,
   ShieldCheck,
+  UserRoundCheck,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 const sidebarItems = [
   {
+    title: "数据看板",
+    href: "/",
+    icon: Home,
+  },
+  {
     title: "企业库",
-    href: "/enterprise",
+    href: "/enterprises",
     icon: Building2,
   },
   {
@@ -34,6 +41,16 @@ const sidebarItems = [
     title: "无事不扰",
     href: "/no-disturb",
     icon: FileCheck,
+  },
+  {
+    title: "行业部门",
+    href: "/departments",
+    icon: Building2,
+  },
+  {
+    title: "执法人员",
+    href: "/inspectors",
+    icon: UserRoundCheck,
   },
 ];
 
